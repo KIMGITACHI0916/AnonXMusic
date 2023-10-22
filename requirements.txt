@@ -9,7 +9,7 @@ hachoir
 heroku3
 motor
 pillow
-psutil
+psutil==5.9.6
 py-tgcalls==0.9.7
 pykeyboard
 pyrogram==2.0.106
