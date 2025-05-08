@@ -26,9 +26,16 @@ if not MONGO_DB_URI:
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 60))
 
 LOGGER_ID = getenv("LOGGER_ID")
+
 if not LOGGER_ID:
     raise SystemExit("[ERROR] - LOGGER_ID is not set.")
-LOGGER_ID = int(LOGGER_ID)
+
+try:
+    LOGGER_ID = int(LOGGER_ID)
+except ValueError:
+    raise SystemExit(f"[ERROR] - LOGGER_ID must be an integer. Got: {LOGGER_ID}")
+
+print(f"LOGGER_ID = {LOGGER_ID} ({type(LOGGER_ID)})")
 
 OWNER_ID = getenv("OWNER_ID", "1356469075")
 OWNER_ID = int(OWNER_ID)
